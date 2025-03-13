@@ -1,0 +1,36 @@
+<DOCTYPE html>
+<html lang = 'ru'>
+
+    <head>
+        <meta name="viewport" content='width=1000'>
+        <link rel="stylesheet" href="{{ url_for('static', filename='Main.css') }}">
+        {% block title %} {% endblock %} 
+    </head>
+
+    <body  style="background-color: #579192; margin: 0; padding: 0">
+
+    <header style = 'z-index: 1000'>
+        <div> <!-- style = 'scale: 1.2; margin-left: 10%' -->
+            <h3>
+                <div style="margin-left: 2%; display: flex; align-items: center">
+                    <button class="ImageButton" type="button"; name = 'popbtn'> </button>
+                    <button id = 'Solve' class="HeaderButton" type="button"; name = 'popbtn'>Решать</button>
+                    <button id = 'Theory' class="HeaderButton" type="button"; name = 'popbtn'>Теория</button>
+                    <button id = 'Download' class="HeaderButton" type="button"; name = 'popbtn'>Скачать</button>
+                    <button id = 'AboutUs' class="HeaderButton" type="button"; name = 'popbtn'>О нас</button>
+                </div>
+            </h3>
+        </div>
+    </header>
+    
+    {% block body %} {% endblock %}
+
+    <footer style = 'z-index: 1000'>
+        <div class="CenterText"> <!-- style = 'scale: 1.2' --> 
+            <div style="display: inline-block;"><h3 style="color: #2C2D31;">Студия Shvap, 2025.</h3><h3 style="color: #2C2D31;">Поддержка: shvarev.egor.a@yandex.ru</h3></div>
+        </div>
+       <script src="{{url_for('static', filename='MainScriptJS.js')}}"></script>
+    </footer>
+
+    </body>
+</html>
