@@ -11,7 +11,7 @@ list_q = [('Сколько апрьпатр',
             3,'3.14','123','444','233'
            )]
 
-curs.execute("""PRAGMA foreign_keys=on""")
+#curs.execute("""PRAGMA foreign_keys=on""")
 
 #curs.execute("DROP TABLE questions")
 #curs.execute(""" CREATE TABLE IF NOT EXISTS quiz
@@ -55,6 +55,47 @@ curs.execute("""PRAGMA foreign_keys=on""")
 #print(curs.fetchall())
 #curs.execute('SELECT * FROM quiz_content')
 #print(curs.fetchall())
+
+#curs.execute('''
+#    CREATE TABLE VoprosThemes (
+#  ThemeID INT PRIMARY KEY,
+#  ThemeName VARCHAR(50) NOT NULL
+#);
+#'''
+#)
+
+#curs.execute('ALTER TABLE Questionsss RENAME TO old_table2ghjghjghhgjghjghhghgjghjghjghj')
+
+#curs.execute('''
+#    CREATE TABLE Questionsss (
+#    OuestionID INT PRIMARY KEY,
+#    QuestionName TEXT NOT NULL,
+#    QuestionOne TEXT NOT NULL,
+#    QuestionTwo TEXT NOT NULL,
+#    QuestionThree TEXT NOT NULL,
+#    QuestionFour TEXT NOT NULL,
+#    ThemeID INT,
+#    FOREIGN KEY (ThemeID) REFERENCES VoprosThemes(ThemeID)
+#);
+#'''    
+#)
+
+#curs.execute('''
+#INSERT INTO VoprosThemes (ThemeID, ThemeName)
+#VALUES (1, 'Изопроцессы'), (2, 'Термодинамика'), (3, 'Статика');
+#''')
+
+#curs.execute('''
+#INSERT INTO Questionsss (OuestionID, QuestionName, QuestionOne, QuestionTwo, QuestionThree,QuestionFour, ThemeID)
+#VALUES (1, "Чё как?", "один", "два", "три", "четыре", 1), (2, "Чё как два?", "одиндва","двадва","тритри","четыречетыре", 2), (3, "Чё как три?","одинтри","одинчепыре","одинпять","одиншесть", 3);
+#''')
+
+curs.execute('SELECT * FROM Questionsss')
+print(curs.fetchall())
+
+db.commit()
+
+db.close()
 
 
 app = Flask(__name__)
@@ -102,8 +143,3 @@ if __name__ == '__main__':
 #curs.execute('SELECT rowid, * FROM questions WHERE rowid <= 5 ORDER BY rowid')
 #print(curs.fetchone()) # | Др. команды с fetch - all, many, one(Возвращает сразу кортеж), [1] - индекс
 
-#print(curs.fetchall())
-
-db.commit()
-
-db.close()
