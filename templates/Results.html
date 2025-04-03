@@ -1,0 +1,22 @@
+{% extends "Base.html" %}
+
+{% block title %}
+<title> Решу ФИЗИКУ! | РЕЗУЛЬТАТЫ </title>
+{% endblock %}
+
+{% block body %}
+
+
+<div class = 'CenterDiv' style = 'width: 40%; display: block; text-align:center'>
+
+{% if results == from_q  %}
+    <h1 class = 'SimpleText'>Поздравляем! Ваш результат:</h1>
+{% else %}
+    <h1 class = 'SimpleText'>Ваш результат:</h1>
+{% endif %} 
+
+<h1  class = 'SimpleText'>{{ results }} из {{from_q}}</h1>
+</div>
+
+
+{% endblock %}

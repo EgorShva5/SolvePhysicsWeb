@@ -1,0 +1,49 @@
+h1 { 
+    font-size: 40px;
+    font-family: 'Jost';
+}
+
+h2 {
+    font-family: 'Jost';
+    font-size: 30px;
+}
+
+h3 { 
+    font-family: 'Jost Light';
+}
+
+p {
+    font-family: 'Jost';
+    font-size: 20px;
+}
+
+input[type='radio'] {
+    display: none;
+}
+
+input[type='submit'] {
+    display: none;
+}
+
+input[type=radio]:checked + label {
+	background: #28334d;
+    border-radius: 20px;
+}
+
+label {
+    background-color: #4E6974;
+    transition: all .2s;
+    text-decoration: none;
+    padding-left: 8px; padding-right: 8px;
+    border: 3px solid #2C2D31;
+    cursor: pointer;
+    font-family: 'Jost';
+    font-size: 25px;
+    color: #C6DAE1
+}
+
+label:hover {
+    border-radius: 20px;
+    border: 3px solid #383a3f;
+    color: #e6c9ca;
+}
