@@ -1,15 +1,16 @@
 from flask import Flask, url_for, request, session
 from flask import render_template
 import sqlite3
+import random
 
 db = sqlite3.connect('SolvePhysics.db')
 curs = db.cursor()
 
-list_q = [('Сколько апрьпатр', 
-           2,'1','2','3','4'),
-           ('Pi =',
-            3,'3.14','123','444','233'
-           )]
+#list_q = [('Сколько апрьпатр', 
+#           2,'1','2','3','4'),
+#           ('Pi =',
+#            3,'3.14','123','444','233'
+#           )]
 
 #curs.execute("""PRAGMA foreign_keys=on""")
 
@@ -91,14 +92,29 @@ list_q = [('Сколько апрьпатр',
 #''')
 
 curs.execute('SELECT * FROM Questionsss')
-print(curs.fetchall())
+#print(curs.fetchall())
 
 db.commit()
 
+app = Flask(__name__)
+
+app.config["SECRET_KEY"] = 'PasswordForSolvePhysicsApplicationMadeByGreatMe123321!)'
+
+def QuizForm():
+    DataQuiz = curs.execute('SELECT * FROM Questionsss ORDER BY OuestionID').fetchall()
+    return DataQuiz
+
+question = QuizForm()
+
 db.close()
 
-
-app = Flask(__name__)
+#def index():
+#    if request.method == 'POST':
+#        pass
+#    elif request.method == 'GET':
+#        pass
+    
+#app.add_url_rule('/SolvePart', 'index', index, methods = ['POST', 'GET'])
 
 @app.route('/Main')
 @app.route('/')
@@ -115,8 +131,53 @@ def download():
 
 @app.route('/SolvePart')
 def solve_part():
-    return render_template('SolvePart.html')
+    #session['IsQuizStart'] = False
+    session['RightAnswers'] = 0
+    session['last_question'] = 0
+    #if request.method == 'POST':
+    #    return
+    #elif request.method == 'GET':
+    #    return render_template('SolvePart.html')
+    return MadeQuestion(question[0])
 
+@app.route('/question_solve', methods = ['POST'])
+def Qustion():
+    #if len(question) != (int(session['last_question'])):
+    #answer = request.form['question1']
+    #print(len(question), session['last_question'])
+    if request.method == 'POST':# and session['IsQuizStart']:
+        SaveAnswers()
+
+    if len(question) == int(session['last_question']):
+        session['last_question'] = 0
+        print(session['RightAnswers'])
+        return render_template('Results.html', results = session['RightAnswers'], from_q = len(question))
+    else:
+        next_question = question[int(session['last_question'])]
+        # session['IsQuizStart'] = True
+        return MadeQuestion(next_question)
+# else:
+           
+def MadeQuestion(Question):
+    answer_list = [Question[2],Question[3],Question[4],Question[5]]
+    random.shuffle(answer_list)
+    #session['last_question'] += 1
+    return render_template('SolvePart.html',question = Question[1], question_id = Question[0], answer_list = answer_list)
+    
+def SaveAnswers():
+    answer = request.form.get('ans_text')
+    question_num = request.form.get('q_id')
+    #print(request.form, 'Дата')
+    #print(answer, question[int(session['last_question'])][2])
+    if answer == question[int(session['last_question'])][2]:
+        session['RightAnswers'] += 1
+    session['last_question'] = question_num
+    
+    #session['last_question'] += 1
+    #question_id = request.form.get('question_id')
+    
+    #session['total'] += 1
+    
 if __name__ == '__main__':
     app.run(debug=True)
 
