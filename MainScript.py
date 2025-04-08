@@ -1,5 +1,5 @@
-from flask import Flask, url_for, request, session
-from flask import render_template
+from flask import Flask, url_for, request, session ,  render_template
+#from flask import render_template
 import sqlite3
 import random
 
