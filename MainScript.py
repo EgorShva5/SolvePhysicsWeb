@@ -348,6 +348,7 @@ def OpenGame():
 @app.route('/HowToCreateArticle')
 def HowArtCr():
     return render_template('HowToCreateArticle.html', username= session['username'])
+
     
 def MadeQuestion(Question):
     answer_list = [Question[2],Question[3],Question[4],Question[5]]
