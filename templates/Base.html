@@ -9,7 +9,7 @@
         {% block title %} {% endblock %} 
     </head>
 
-    <body  style="background-color: #579192; margin: 0; padding: 0">
+    <body style = 'background-color: #5F9EA0'>
 
     <header style = 'z-index: 1000'>
         <div> <!-- style = 'scale: 1.2; margin-left: 10%' -->
@@ -21,18 +21,89 @@
                     <button id = 'Download' class="HeaderButton" type="button"; name = 'popbtn'>Скачать</button>
                     <button id = 'News' class="HeaderButton" type="button"; name = 'popbtn'>Лента</button>
                     <button id = 'AboutUs' class="HeaderButton" type="button"; name = 'popbtn'>О нас</button>
+                    {% if username == '' %}
+                        <div style = 'position: fixed; right: 5%'>
+                            <button id = 'Register' class="HeaderButton Regg" type="button"; name = 'popbtn'>Регистрация</button>
+                            <button id = 'Enter' class="HeaderButton" type="button"; name = 'popbtn'>Вход</button>
+                        </div> 
+                    {% else %}
+                        <div style = 'position: fixed; right: 5%'>
+                            <a href = '/Account' class = 'SimpleText White BigSize'> {{ username }} </a>
+                        </div>
+                    {% endif %}
+
                 </div>
             </h3>
         </div>
     </header>
-    
+   
+    <div id = 'ConverterWindow' class = 'fullscreen-div ConverterDiv' style='justify-content:center; text-align:center'> 
+        <div id = 'allItems'>
+            <h1 class = 'SimpleText White'>Конвертор физических величин</h1>
+            <div style = 'display:flex; flex-direction: row; align-items: center; justify-content:center; text-align:center'>
+                <div style = 'display:flex; flex-direction: column;  margin: 40px; justify-content:center; text-align:center'>
+                    <h1 class = 'SimpleText White'>Параметр:</h1>
+                    <select id = 'From'>
+                        <option>Масса</option>
+                        <option>Расстояние</option>
+                        <option>Объём</option>
+                        <option>Температура</option>
+                    </select>
+                </div>
+                <div style = 'display:flex; flex-direction: column;  margin: 40px'>
+                    <h1 id = 'ChangeOn' class = 'SimpleText White'>Изменить по:</h1>
+                    <select id = 'ConvertTemperature'>
+                        <option>Градусы Цельсия</option>
+                        <option>Кельвина</option>
+                        <option>Фаренгейта</option>
+                        <option>Реомюра</option>
+                    </select>
+                    <select id = 'ConvertWeight'>
+                        <option>Килограмм</option>
+                        <option>Грамм</option>
+                        <option>Тонн</option>
+                        <option>Килотонн</option>
+                        <option>Ньютон</option>
+                        <option>Милиграмм</option>
+                        <option>Микрограмм</option>
+                        <option>Карат</option>
+                    </select>
+                    <select id = 'ConvertVolume'>
+                        <option>Литр</option>
+                        <option>Миллилитр</option>
+                        <option>Децилитр</option>
+                        <option>Куб. метр</option>
+                    </select>
+                    <select id = 'ConvertDistance'>
+                        <option>Метр</option>
+                        <option>Километр</option>
+                        <option>Дециметр</option>
+                        <option>Сантиметр</option>
+                        <option>Миллиметр</option>
+                        <option>Нанометр</option>
+                    </select>
+                    <input id = 'SearchBtn' class="textbox search" type="text" name="themesearch" placeholder="Значение" >
+                </div>
+            </div>
+            <div style = 'display:flex; text-align: center; align-items: center; justify-content: center; margin: 40px; gap: 20px'>
+                <button id = 'back' class="SimpleBtn InputStyle" type="button"; name = 'popbtn'></button> <label class = 'MainLabel' style = 'font-size: 24px' for ='back'>Назад</label>
+                <button id = 'konvert' class="SimpleBtn InputStyle" type="button"; name = 'popbtn'></button> <label class = 'MainLabel' style = 'font-size: 24px' for ='konvert'>Конвертировать</label>
+            </div>
+            
+        
+        </div>
+       
+    </div>
+
     {% block body %} {% endblock %}
 
     <footer style = 'z-index: 1000'>
         <div class="CenterText"> <!-- style = 'scale: 1.2' --> 
             <div style="display: inline-block;"><h3 style="color: #2C2D31;">Студия Shvap, 2025.</h3><h3 style="color: #2C2D31;">Поддержка: shvarev.egor.a@yandex.ru</h3></div>
         </div>
+        {% block footer %} {% endblock %}
        <script src="{{url_for('static', filename='MainScriptJS.js')}}"></script>
+       <script src="{{url_for('static', filename='ValuesConverter.js')}}"></script>
     </footer>
 
     </body>

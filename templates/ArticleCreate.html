@@ -1,0 +1,23 @@
+{% extends "Base.html" %}
+
+{% block title %}
+<title> Решу ФИЗИКУ! | СОЗДАТЬ СТАТЬЮ </title>
+{% endblock %}
+
+{% block body %}
+<form action = '/ArticleCreate' method='post'>
+<div class = 'DivItemsCenter ContentCenter Column unHeader'>
+    <h1 class = 'SimpleText White'>Создать статью</h1>
+
+        <div style = 'width: 900px'>
+        <input name = 'Title' id = 'Title' type = 'text' placeholder = 'Введите название статьи' required>
+        
+        <textarea name = 'MainText' id = 'MainText' style='width: 90%; height: 300px' placeholder = 'Напишите основной текст' required></textarea>
+        <textarea name = 'Intro' id = 'Intro' style='width: 90%; height: 150px' placeholder = 'Напишите вступление' required></textarea>
+        <input name = 'Author' id = 'Author' type = 'text' placeholder = 'Введите имя автора' required><br><br>
+        
+        </div>
+        <div class = 'BottomCenter'><input id = 'SubmitBtn' type = 'submit' value = 'Submit'> <label class = 'MainLabel' for ='SubmitBtn'>Ответить</label> <a href = '/HowToCreateArticle'>Как создаать статьи?</a></div>
+</div>
+</form>
+{% endblock %}

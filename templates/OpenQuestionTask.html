@@ -1,0 +1,17 @@
+{% extends "Base.html" %}
+
+{% block title %}
+<title> Решу ФИЗИКУ! | ЗАДАЧИ С ОТКРЫТЫМ ОТВЕТОМ </title>
+{% endblock %}
+
+{% block body %}
+
+<div class = 'CenterCenterText Text'>
+    <h1 class = 'SimpleText White'>Задача:</h1>
+    <p class = 'SimpleText White BigSize'> {{ Task }} </p>
+    {% if Image %}    
+        <img scr = '{{ Image }}'>
+    {% endif %}
+</div>
+
+{% endblock %}

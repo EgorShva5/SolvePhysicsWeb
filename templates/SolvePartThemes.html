@@ -1,0 +1,34 @@
+{% extends "Base.html" %}
+
+{% block title %}
+<title> Решу ФИЗИКУ! | ТЕОРИЯ </title>
+{% endblock %}
+
+{% block body %}
+<form action="/SolvePartTheme" method = 'POST'>
+<div class = 'fullscreen-div BigPageText'> <div class = 'CenterText'>
+    
+    <h1 class = 'SimpleText Alert'>{{ message }}</h1>
+    <div class = 'TheoryBtn SimpleHContentContainer'>
+    <input id = 'linesearch' class="textbox search" type="text" name="themesearch" placeholder="Найти определённую тему" ><br>
+    <button id = 'textsearch' class="SimpleBtn InputStyle" type="button"; name = 'popbtn'></button> <label class = 'MainLabel' style = 'font-size: 24px' for ='textsearch'>Найти</label>
+    </div>
+    <input type = 'hidden' id = 'list' name = 'list' value = '{{ themes_list }}'> 
+    <h1 class = 'SimpleText'>  Список тем: </h1>
+    {% for theory in themes_list %}
+        <div class = 'TheoryBtn'> 
+            <h1 class = 'SimpleText BoxLbl'> {{theory[1]}} </h1> 
+            <input id = "{{theory[0]}}" name = "theory_btn" class = 'SimpleBtn' type="radio" value="{{theory[0]}}">
+            <label class = 'MainLabel' style = 'font-size: 18px' for ="{{theory[0]}}">Выбрать</label>
+        </div>
+    {% endfor %}
+    <input id = 'SubmitBtn' class = 'SimpleBtn' type="submit" value="Submit"> <label class = 'MainLabel' style = 'font-size: 24px' for ='SubmitBtn'>Найти задания!</label>
+    
+    <br><br><br><br><br><br><br><br><br>
+</div> </div>
+</form>
+{% endblock %}
+
+{% block footer %}
+    
+{% endblock %}

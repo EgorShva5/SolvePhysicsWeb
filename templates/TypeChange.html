@@ -1,0 +1,27 @@
+{% extends "Base.html" %}
+
+{% block title %}
+<title> Решу ФИЗИКУ! | ВЫБОР РАЗДЕЛА </title>
+{% endblock %}
+
+{% block body %}
+
+<div class ='CenterCenterText Text'>
+    <h1 class = 'SimpleText White'>Выберите раздел:</h1>
+    <div class = 'Razdels'>
+        <a class = 'SimpleBtn' href = '/KidsGames'><div style = 'background-image: url(https://i.postimg.cc/X7Pwf5v0/Back.png);' class = 'RazdelContainer'>
+            <h2 class = 'SimpleText White Outline'> Для самых маленьких </h2>
+        </div></a>
+        <a class = 'SimpleBtn' href = '/SolvePartTheme?type=1'><div style = 'background-image: url(https://i.postimg.cc/qB6P2P0b/Back3.png);' class = 'RazdelContainer'>
+            <h2 class = 'SimpleText White Outline'> Задания ОГЭ </h2> 
+        </div></a>
+        <a class = 'SimpleBtn' href = '/SolvePartTheme?type=2'><div style = 'background-image: url(https://i.postimg.cc/xC6LCxpL/Back4.png);' class = 'RazdelContainer'>
+            <h2 class = 'SimpleText White Outline'> Задания ЕГЭ </h2>
+        
+        </div></a>
+        <a class = 'SimpleBtn' href = '/SolvePartTheme?type=3'><div style = 'background-image: url(https://i.postimg.cc/HWcv8bHb/Back2.png);'  class = 'RazdelContainer'>
+            <h2 class = 'SimpleText White Outline'> Обычные задания </h2>  
+        </div></a>
+    </div>
+</div>
+{% endblock %}

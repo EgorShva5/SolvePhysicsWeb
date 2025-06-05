@@ -1,0 +1,32 @@
+{% extends "Base.html" %}
+
+{% block title %}
+<title> Решу ФИЗИКУ! | РЕГИСТРАЦИЯ </title>
+{% endblock %}
+
+{% block body %}
+<div class = 'CenterCenterText'> 
+<div class = 'CenterText'>
+    
+    <h2 style = 'width: 400px' class = 'SimpleText Alert'>{{message}}</h2>
+    
+    <form action="/Register" method="post">
+    <h1 class = 'SimpleText'>Регистрация</h1>
+    <div class= 'DivItemsCenter Column'>
+        <input class="textbox" type="text" name="username" placeholder="Enter Username" required>
+        <input class="textbox" type="password" name="password" placeholder="Enter Password" required>
+        <input class="textbox" type="email" name="email" placeholder="Enter Email" required>
+        <input class="textbox" type="text" name="school_name" placeholder="Enter School" required>
+        <select name = 'type' class = 'select-css'>
+            <option>Ученик</option>
+            <option>Учитель</option>
+            <option>Пользователь</option>
+        </select>
+        <p class = 'SimpleText'><i><SUP>Уже есть аккаунт? <a href = '/Enter'>Войти</a></SUP></i></p>
+    </div>
+    <input id = 'SubmitBtn' class = 'SimpleBtn' type="submit" value="Submit"> <label class = 'MainLabel' for ='SubmitBtn'>Ответить</label>
+    </form>
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "Base.html" %}
+
+{% block title %}
+<title> Решу ФИЗИКУ! | СТАТЬЯ </title>
+{% endblock %}
+
+{% block body %}
+    <form action="/SolvePartThemes" method="get">
+    <div class = 'fullscreen-div BigPageText'> <div style = 'width: 1200px' class = 'CenterText'>
+        <h1 class = 'SimpleText White'>{{ result.title }}</h1>
+        <p class = 'SimpleText BigSize'> {{ result.main_text }} </p>
+        <h2 class = 'SimpleText White'> Атвор: {{ result.author }}</h2>
+        <h2 class = 'SimpleText White'> Время публикации: {{ result.time }}</h2>  
+        <br><br><br><br><br><br><br><br>
+    </div> </div>
+</form>
+{% endblock %}

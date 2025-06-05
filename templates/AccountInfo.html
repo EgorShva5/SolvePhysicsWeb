@@ -1,0 +1,56 @@
+{% extends "Base.html" %}
+
+{% block title %}
+<title> Решу ФИЗИКУ! | ИНФОРМАЦИЯ ОБ АККАУНТЕ </title>
+{% endblock %}
+
+{% block body %}
+<div class = 'ContentCenterUp'>
+    <div style = 'width:750px;'> <!-- border: 1px solid black> -->
+        <h1 class = 'SimpleText White'>Здравствуйте, {{ username }}</h1>
+        
+        <div name = 'MainInfo'>   
+            <h2 class = 'SimpleText White'> Основная информация: </h2> 
+            <div class = 'TextLeft'>    
+                <h2 class = 'SimpleText'>Ваш ID: {{id}} </h2> 
+                <h2 class = 'SimpleText'>Дата регистрации: {{ reg_date }} </h2> 
+                <h2 class = 'SimpleText'>Тип аккаунта: {{ acc_type }} </h2> 
+                <h2 class = 'SimpleText'>Учебное заведение: {{ school }} </h2> 
+            </div>
+            <a class = 'links' href = ''>Изменить данные</a>
+        </div>
+        
+        <div name = 'CommonInfo'>   
+            <h2 class = 'SimpleText White'> Общая статистика: </h2> 
+            <div class = 'TextLeft'>    
+                <h2 class = 'SimpleText'>Всего решено заданий: {{id}} </h2> 
+                <h2 class = 'SimpleText'>Решено верно: </h2> 
+                <h2 class = 'SimpleText'>Решено неверно: </h2> 
+            </div>
+            <a class = 'links' href = ''>Посмотреть полную статистику</a>
+        </div>
+
+        <div name = 'CommonInfo'>   
+            <h2 class = 'SimpleText White'> Статистика по ОГЭ: </h2> 
+            <div class = 'TextLeft'>    
+                <h2 class = 'SimpleText'>Всего решено заданий: {{id}} </h2> 
+                <h2 class = 'SimpleText'>Решено верно: </h2> 
+                <h2 class = 'SimpleText'>Решено неверно: </h2> 
+            </div>
+            <a class = 'links' href = ''>Посмотреть полную статистику</a>
+        </div>
+
+        <div name = 'CommonInfo'>   
+            <h2 class = 'SimpleText White'> Статистика по ЕГЭ: </h2> 
+            <div class = 'TextLeft'>    
+                <h2 class = 'SimpleText'>Всего решено заданий: {{id}} </h2> 
+                <h2 class = 'SimpleText'>Решено верно: </h2> 
+                <h2 class = 'SimpleText'>Решено неверно: </h2> 
+            </div>
+            <a class = 'links' href = ''>Посмотреть полную статистику</a>
+        </div>
+    <br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+</div>
+<div class = 'BottomCenter'><a href='/LogOut' class = 'links'>Выйти из аккаунта</a></div>
+{% endblock %}

@@ -8,14 +8,26 @@
 
 <div class = 'CenterDiv' style = 'width: 40%; display: block; text-align:center'>
     <form action="/question_solve" method="post">
+    
+    {% if Right or Solve %}
+        {% if Right == Solve %}
+            <h1 class = 'SimpleText Right Outline'>Верно!</h1>
+        {% elif Right != Solve %}
+            <h1 class = 'SimpleText Alert Outline'>Неверно!</h1>   
+        {% endif %} 
+
+        <h2 class = 'SimpleText White'>Ваш ответ: {{ Right }} <br> Правильный ответ: {{ Solve }} </h2>
+    {% endif %}
+    
+
     <h1 style = 'margin-bottom:20px; color: #C6DAE1; '>{{ question }}</h1>
     <div style = 'display: flex; align-items: center; justify-content: center; margin-bottom: 40px; gap: 40px'>
         <input type = 'hidden' name = 'q_id' value = "{{ question_id }}">
         {% for answer in answer_list %}
-        <input id = '{{answer}}' type='radio' name ='ans_text' value = '{{answer}}'> <label for = '{{answer}}'> {{answer}}</label> <br> <br> 
+        <input id = '{{answer}}' type='radio' name ='ans_text' value = '{{answer}}'> <label class = 'MainLabel' for = '{{answer}}'> {{answer}}</label> <br> <br> 
         {% endfor %}
     </div>
-    <input id = 'SubmitBtn' class = 'SimpleBtn' type="submit" value="Submit"> <label style = 'font-size: 30px' for ='SubmitBtn'>Ответить</label>
+    <input id = 'SubmitBtn' class = 'SimpleBtn' type="submit" value="Submit"> <label class = 'MainLabel Answer' for ='SubmitBtn'>Ответить</label>
     </form>
 </div>
 <br><br><br><br><br><br><br><br><br><br>

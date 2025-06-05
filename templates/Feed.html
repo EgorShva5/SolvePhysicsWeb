@@ -1,0 +1,25 @@
+{% extends "Base.html" %}
+
+{% block title %}
+<title> Решу ФИЗИКУ! | ЛЕНТА </title>
+{% endblock %}
+
+{% block body %}
+    <div class = 'fullscreen-div BigPageText'> <div class = 'CenterText'>
+        <h1 class = 'SimpleText White'>Последние записи:</h1>
+        {% for article in result %}
+            {% set time = article.time.time() %}
+            {% set date = article.time.date() %}
+
+            <div class = 'ArticleFeed'>
+                <h1 class = 'SimpleText White'> {{ article.title }} </h1> 
+                <p class = 'SimpleText'> {{ article.intro }} </p>
+                <h2 class = 'SimpleText'>Автор: {{ article.author }}, Время публикации: {{ date }}</h2>
+                <a class = 'SimpleText' href = '/Feed/{{ article.id }}'>Читать подробнее</a><br><br>
+            </div> <br><br>
+        {% endfor %}
+        <br><br><br><br><br><br><br><br>
+    </div> </div>
+
+    <div class = 'BottomCenter'><a href='/ArticleCreate' class = 'links'>Создать статью</a></div>
+{% endblock %}

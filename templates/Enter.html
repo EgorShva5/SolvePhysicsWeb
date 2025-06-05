@@ -1,0 +1,25 @@
+{% extends "Base.html" %}
+
+{% block title %}
+<title> Решу ФИЗИКУ! | ВХОД </title>
+{% endblock %}
+
+{% block body %}
+<div class = 'CenterCenterText'> 
+<div class = 'CenterText'>
+    <form action="/Enter" method="post">
+    <h2 style = 'width: 400px'>{{message}}</h2>
+    <h1 class = 'SimpleText'>Вход в аккаунт</h1>
+    
+    <div>
+        <input class="textbox" type="text" name="username" placeholder="Enter Username" required><br>
+        <input class="textbox" type="password" name="password" placeholder="Enter Password" required>
+        <i><p class = 'SimpleText'><SUP>Ещё нету аккаунта? <a href = '/Register'>Регистрация</a></SUP></p></i>
+    </div>
+    <br>
+    <input id = 'SubmitBtn' class = 'SimpleBtn' type="submit" value="Submit"> <label class = 'MainLabel' for ='SubmitBtn'>Ответить</label>
+    </form>
+</div>
+</div>
+
+{% endblock %}

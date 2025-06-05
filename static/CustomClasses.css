@@ -3,11 +3,56 @@
 }
 
 .CenterCenterText {
-    text-align: center;
     position: fixed;
-    top: 42%;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
+}
+
+.CenterCenterText.Text{
+    text-align: center;
+}
+
+.ContentCenterUp {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid black; */ 
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    top: 150px;
+}
+
+.DivItemsCenter {
+    gap: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.DivItemsCenter.ContentCenter {
+    width: auto;
+    height: auto;
+}
+
+.DivItemsCenter.unHeader{
+    margin-top: 160px;
+    margin-bottom: 200px;
+}
+
+.DivItemsCenter.Column {
+    flex-direction: column;
+}
+
+.BottomCenter {
+    width:100%; 
+    justify-content: center; 
+    text-align:center; 
+    position: fixed; 
+    bottom: 140px;
 }
 
 .HeaderButton {
@@ -22,6 +67,10 @@
     scale: 1.5;
     font-family: 'Jost';
     background-color: #579192;
+}
+
+.HeaderButton.Regg {
+    width: 100px;
 }
 
 .HeaderButton:hover {
@@ -89,6 +138,10 @@
     color: #C6DAE1
 }
 
+.SimpleBtn.InputStyle {
+    display: none;
+}
+
 .SimpleBtn:hover {
     color: #e6c9ca;
 }
@@ -97,15 +150,188 @@
     color: #2C2D31
 }
 
+.SimpleText.BigSize {
+    font-size: 24px;
+}
+
+.SimpleText.Alert {
+    color: #8d2629
+}
+
+.SimpleText.Right {
+    color: #4cd331
+}
+
+.SimpleText.White {
+    color: #C6DAE1
+}
+
+.SimpleText.Outline {
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+}
+
+.SimpleText.OutlineWhite {
+    text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff;
+}
+
+.SimpleText.BoxLbl {
+    font-size: 24px;
+}
+
 .TheoryBtn {
     width: 500px;
     height: 50px;
-    border: 3px solid black;
-    box-shadow: #2C2D31 0px 0px 20px;
+    border: 3px solid #2C2D31;
     text-align: center;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-left: 20px;
     padding-right: 20px;
+    background-color: #85b0cf;
+    margin:20px
+}
+
+.TheoryBtn.SimpleHContentContainer {
+    height: 80px;
+    border: 3px solid #2C2D31;
+    
+}
+
+.bgvideo {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -9999;
+}
+
+.textbox {
+    background-color: #95b8d1;
+    color: #2C2D31;
+}
+
+.textbox.search {
+    width: 400px
+}
+
+.heading {
+    text-align: center; 
+    color: #C6DAE1
+}
+
+.links {
+    box-shadow: 0px 0px 0px #2C2D31;
+    transition: all .2s;
+    font-size: 20px;
+    margin: 3px;
+    padding: 4px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #2C2D31;
+    border: 2px solid #2C2D31;
+    background-color: #95b8d1;
+}
+
+.links:hover{
+    border-radius: 15px;
+    font-size: 20px;
+    box-shadow: 0px 0px 3px black;
+}
+
+.center_div_items {
+    display: flex; 
+    align-items: center;
+    justify-content: center; 
+    text-align: center
+}
+
+.fullscreen-div.BigPageText {
+    display: flex; 
+    justify-content: center; 
+    margin-top: 160px;
+    width: 100%
+}
+
+.MainLabel {
+    background-color: #85b0cf;
+    transition: all .2s;
+    text-decoration: none;
+    padding-left: 8px; padding-right: 8px;
+    border: 3px solid #2C2D31;
+    cursor: pointer;
+    font-family: 'Jost';
+    font-size: 25px;
+    color: #2C2D31
+}
+
+.MainLabel.Answer {
+    font-size: 30px;
+}
+
+.MainLabel:hover {
+    border-radius: 20px;
+    border: 3px solid #383a3f;
+    color: #42444b;
+}
+
+.fullscreen-div.ConverterDiv {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    opacity: 0.92;
+    height: 100vh;
+    background-color: #2C2D31;
+    
+}
+
+.SimpleTable {
+    border: 2px solid #85b0cf;
+    color:#C6DAE1;
+    font-family: 'Jost';
+    font-size: 25px;
+    border-spacing: 20px;
+}
+
+.ArticleFeed {
+    padding: 10px;
+    width: 800px;
+    border: 4px solid #383a3f;
+    background-color: #8596c0;
+    display: flex;
+    flex-direction: column;
+}
+
+.Razdels {
+    max-width: 700px;
+    justify-content: center;
+    display: flex;
+}
+
+.RazdelContainer {
+    transition: all .2s;
+    scale: 1.0;
+    justify-content: center;
+    text-align: center;
+    margin: 15px;
+    width: 200px;
+    height: 300px;
+    border: 4px solid black;
+    background-color: #8596c0;
+    display: flex;
+    flex-direction: column;
+}
+
+.RazdelContainer:hover {
+    scale: 1.05;
+}
+
+.TextLeft {
+    text-align: left;
 }

@@ -5,21 +5,27 @@
 {% endblock %}
 
 {% block body %}
-
-
-<div class = 'CenterCenterText' style='top:200px'>
-    <form action="/Theory" method="post">
-    <h1> Список тем: </h1>
+<form action="/Theory" method="post">
+<div class = 'fullscreen-div BigPageText'> <div class = 'CenterText'>
+    <h1 class = 'SimpleText Alert'>{{ message }}</h1>
+    <div class = 'TheoryBtn SimpleHContentContainer'>
+    <input id = 'linesearch' class="textbox search" type="text" name="themesearch" placeholder="Найти определённую тему" ><br>
+    <button id = 'textsearch' class="SimpleBtn InputStyle" type="button"; name = 'popbtn'></button> <label class = 'MainLabel' style = 'font-size: 24px' for ='textsearch'>Найти</label>
+    </div>
+    <h1 class = 'SimpleText'> <u> Теория</u> | Список тем: </h1>
     {% for theory in themes_list %}
-        <div class = 'TheoryBtn' style = 'margin:20px'> 
-            <h1 style='font-size:24px'> {{theory[1]}} </h1> 
+        <div class = 'TheoryBtn'> 
+            <h1 class = 'SimpleText BoxLbl'> {{theory[1]}} </h1> 
             <input id = "{{theory[0]}}" name = "theory_btn" class = 'SimpleBtn' type="radio" value="{{theory[0]}}">
-            <label style = 'font-size: 18px' for ="{{theory[0]}}">Выбрать</label>
+            <label class = 'MainLabel' style = 'font-size: 18px' for ="{{theory[0]}}">Выбрать</label>
         </div>
     {% endfor %}
-    <input id = 'SubmitBtn' class = 'SimpleBtn' type="submit" value="Submit"> <label style = 'font-size: 24px' for ='SubmitBtn'>Найти теорию!</label>
-    </form>
-</div>
+    <br><br><br><br><br><br><br><br><br>
+</div> </div>
+<div class = 'BottomCenter'><input id = 'SubmitBtn' class = 'SimpleBtn' type="submit" value="Submit"> <label class = 'MainLabel' style = 'font-size: 20px'  for ='SubmitBtn'>Найти теорию!</label></div>
+</form>
+{% endblock %}
 
-
+{% block footer %}
+    <script src="{{url_for('static', filename='Theory.js')}}"></script>
 {% endblock %}
