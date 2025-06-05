@@ -6,17 +6,16 @@
 
 {% block body %}
 
-
-<div class = 'CenterDiv' style = 'width: 40%; display: block; text-align:center'>
-
 {% if results == from_q  %}
-    <h1 class = 'SimpleText'>Поздравляем! Ваш результат:</h1>
+    <div class = 'CenterDiv' style = ' display: grid; justify-content:center; text-align:center; align-items: center; border: 5px solid black; box-shadow: black 0px 0px 20px; width: 600px; height: 400px; background-image: url("https://i.postimg.cc/hvvTc1wK/SpBlck.png"); '>
+    <h1 class = 'SimpleText', style = 'color: white; text-shadow: black 0px 0px 20px'>Поздравляем! Ваш результат:</h1>
+    <h1 class = 'SimpleText', style = 'color: white; text-shadow: black 0px 0px 20px'>{{ results }} из {{from_q}}</h1>
+    </div>
 {% else %}
+    <div class = 'CenterDiv', style='text-align:center'>
     <h1 class = 'SimpleText'>Ваш результат:</h1>
+    <h1 class = 'SimpleText'>{{ results }} из {{from_q}}</h1>
+    </div>
 {% endif %} 
-
-<h1  class = 'SimpleText'>{{ results }} из {{from_q}}</h1>
-</div>
-
 
 {% endblock %}

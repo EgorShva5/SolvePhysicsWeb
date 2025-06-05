@@ -1,0 +1,25 @@
+{% extends "Base.html" %}
+
+{% block title %}
+<title> Решу ФИЗИКУ! | ТЕОРИЯ </title>
+{% endblock %}
+
+{% block body %}
+
+
+<div class = 'CenterCenterText' style='top:200px'>
+    <form action="/Theory" method="post">
+    <h1> Список тем: </h1>
+    {% for theory in themes_list %}
+        <div class = 'TheoryBtn' style = 'margin:20px'> 
+            <h1 style='font-size:24px'> {{theory[1]}} </h1> 
+            <input id = "{{theory[0]}}" name = "theory_btn" class = 'SimpleBtn' type="radio" value="{{theory[0]}}">
+            <label style = 'font-size: 18px' for ="{{theory[0]}}">Выбрать</label>
+        </div>
+    {% endfor %}
+    <input id = 'SubmitBtn' class = 'SimpleBtn' type="submit" value="Submit"> <label style = 'font-size: 24px' for ='SubmitBtn'>Найти теорию!</label>
+    </form>
+</div>
+
+
+{% endblock %}

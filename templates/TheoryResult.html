@@ -1,0 +1,21 @@
+{% extends "Base.html" %}
+
+{% block title %}
+<title> Решу ФИЗИКУ! | О НАС </title>
+{% endblock %}
+
+{% block body %}
+
+<form action="/Theory" method="post">
+<div class = 'fullscreen-div' style = 'display: flex; justify-content: center; margin-top: 160px; width: 100%'>
+    <div style = 'width: 50%;'>
+        {% set text = themes_list[theme_id][2].split('\n') %}
+        <h1 style = 'text-align: center; color: #C6DAE1'>{{themes_list[theme_id][1]}}</h1>
+        <p style = 'color: #2C2D31'>{{themes_list[theme_id][2]}}</p>
+        <p style = 'color: #2C2D31'>{{text}}</p>
+        <br><br><br><br><br><br><br><br>
+    </div>
+</div>
+</form>
+
+{% endblock %}
