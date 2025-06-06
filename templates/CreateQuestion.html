@@ -1,0 +1,27 @@
+{% extends "Base.html" %}
+
+{% block title %}
+<title> Решу ФИЗИКУ! | СОЗДАТЬ СТАТЬЮ </title>
+{% endblock %}
+
+{% block body %}
+<form action = '/CreateQuestion' method='post'>
+<div class = 'DivItemsCenter ContentCenter Column unHeader'>
+    <h1 class = 'SimpleText White'>Создать тестовый вопрос</h1>
+
+        <h1 class = 'SimpleText Right Outline'> {{message}} </h1>
+        <div style = 'width: 900px'>
+        
+        <textarea name = 'MainText' id = 'MainText' style='width: 90%; height: 150px' placeholder = 'Напишите основной текст вопроса' required></textarea><br><br>
+        <input name = 'RightAns' id = 'RightAns' type = 'text' placeholder = 'Введите правильный ответ' required>
+        <input name = 'SecondAns' id = 'SecondAns' type = 'text' placeholder = 'Введите другой ответ' required>
+        <input name = 'ThirdAns' id = 'ThirdAns' type = 'text' placeholder = 'Введите другой ответ' required>
+        <input name = 'FourAns' id = 'FourAns' type = 'text' placeholder = 'Введите другой ответ' required>
+        <input name = 'ThemeID' id = 'ThemeID' type = 'text' placeholder = 'Введите ID темы' required>    
+        
+        </div>
+        
+        <div class = 'BottomCenter'><input id = 'SubmitBtn' type = 'submit' value = 'Submit'> <label class = 'MainLabel' for ='SubmitBtn'>Ответить</label> <!--<a class = 'links' href = '/HowToCreateArticle'>Как создаать статьи?</a></div>-->
+</div>
+</form>
+{% endblock %}

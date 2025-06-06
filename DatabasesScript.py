@@ -50,7 +50,7 @@ class UserDeepInfo(Base):
 class Question(Base):
     __tablename__ = 'Questionsss'
     
-    OuestionID = Column(Integer, primary_key = True)
+    OuestionID = Column(Integer, primary_key=True)
     QuestionName = Column(String(500), nullable = False)
     QuestionOne = Column(String(200), nullable = False)
     QuestionTwo = Column(String(200), nullable = False)

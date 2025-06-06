@@ -1,0 +1,31 @@
+{% extends "Base.html" %}
+
+{% block title %}
+<title> Страничка модеров </title>
+{% endblock %}
+
+{% block body %}
+
+<div class = 'CenterCenterText Text'>
+    <h1 class = 'SimpleText Alert'>{{ message }}</h1>
+    {% if log_on == 'Да' %}
+        <h1 class = 'SimpleText'>Страничка модераторов</h1>
+        <a href = '/CreateQuestion?user={{user}}&passw={{passw}}' class = 'links'>Создать вопрос</a> <br><br>
+        <a class = 'links'>Создать тему</a>
+    {% else %}
+    <div>
+        <form action="/DevScene" method="post">
+        <h1 class = 'SimpleText'>Введите данные модератора</h1>
+        <div>
+            <input class="textbox" type="text" name="username" placeholder="Enter Username" required><br>
+            <input class="textbox" type="password" name="password" placeholder="Enter Password" required>
+        </div>
+        <br>
+        <input id = 'SubmitBtn' class = 'SimpleBtn' type="submit" value="Submit"> <label class = 'MainLabel' for ='SubmitBtn'>Ответить</label>
+        <p class = 'SimpleText'><a href = 'lkkmlk'>Как стать модератором?</a></p>
+        </form>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

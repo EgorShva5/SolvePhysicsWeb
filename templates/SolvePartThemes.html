@@ -14,7 +14,16 @@
     <button id = 'textsearch' class="SimpleBtn InputStyle" type="button"; name = 'popbtn'></button> <label class = 'MainLabel' style = 'font-size: 24px' for ='textsearch'>Найти</label>
     </div>
     <input type = 'hidden' id = 'list' name = 'list' value = '{{ themes_list }}'> 
-    <h1 class = 'SimpleText'>  Список тем: </h1>
+    <input type = 'hidden' id = 'list' name = 'task_type' value = '{{ task_type }}'> 
+
+    {% if task_type == 1 %}
+        <h1 class = 'SimpleText'><u>ОГЭ</u> | Список тем:</h1>
+    {% elif task_type == 2 %}
+        <h1 class = 'SimpleText'><u>ЕГЭ</u> | Список тем:</h1>
+    {% elif task_type == 3 %}
+        <h1 class = 'SimpleText'><u>Задания</u> | Список тем:</h1>
+    {% endif %}
+    
     {% for theory in themes_list %}
         <div class = 'TheoryBtn'> 
             <h1 class = 'SimpleText BoxLbl'> {{theory[1]}} </h1> 
