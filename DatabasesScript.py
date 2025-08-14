@@ -25,7 +25,7 @@ class User(Base):
     __tablename__ = 'accounts'
 
     username = Column(String(40), nullable = False)
-    password = Column(String(40), nullable = False)
+    password = Column(String(128), nullable = False)
     email = Column(String(40), nullable = False)
     id = Column(Integer, primary_key=True)
 

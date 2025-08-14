@@ -4,7 +4,7 @@ from DatabasesScript import Base, Article, User, UserDeepInfo, Question, Questio
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from flask_socketio import SocketIO, join_room, leave_room, send
-import sqlite3, re, random , Config
+import sqlite3, re, random , Config, bcrypt
 
 #from flask_mysqldb import MySQL
 
@@ -38,6 +38,8 @@ db_session_new_quest = DBSession2()
 #app.config['MYSQL_PASSWORD'] = 'password'
 #app.config['MYSQL_DB'] = 'AllData'
 #mysql = MySQL(app)
+
+
 
 #               Берём из DB все вопросы по определённой теме
 def QuizForm(thid):
@@ -109,7 +111,7 @@ def Registration():
         school = request.form.get('school_name')
         type_account = request.form.get('type')
         
-        NewUser = User(username=username, password=password, email=email)
+        NewUser = User(username=username, password=bcrypt.hashpw(password.encode(), bcrypt.gensalt()), email=email)
         
         Check = db_session.query(User).filter_by(username=NewUser.username).first()
         
@@ -157,7 +159,7 @@ def Enter():
             
             SetInfo(AccountInfo, AccountInfo.SCHOOl)
             
-            if password == Account.password:
+            if bcrypt.checkpw(password.encode(),Account.password):
                 message = 'Вы успешно вошли в аккаунт!'
                 session['username'] = username
                 session['id'] = Account.id
@@ -452,6 +454,11 @@ def MadeQuestion(Question):
         session['minus'] = Question[0] - 1
     return render_template('SolvePart.html',question = Question[1], question_id = Question[0]-session['minus'], answer_list = answer_list, username= session['username'])
 
+def MadeOpenQuestion(Question):
+    answer = Question[2]
+    session['Solved'] = False
+    return render_template('SolvePart.html',question = Question[1], question_id = 0, answer = answer, username= session['username'])
+
 def SaveAnswers(answer, question_num):
     #print('ДАааа')
     #print(request.form, 'Дата')
@@ -476,7 +483,7 @@ def SetInfo(Account, School):
     session['OGECommon'] = Account.OGECommon
    # session['']
 
-if __name__ == '__main__': socketio.run(app=app, debug=True)
+if __name__ == '__main__': app.run()
 
 
 #Старое

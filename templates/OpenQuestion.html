@@ -1,0 +1,29 @@
+{% extends "Base.html" %}
+
+{% block title %}
+<title> Решу ФИЗИКУ! | ЗАДАЧИ </title>
+{% endblock %}
+
+{% block body %}
+
+<div class = 'CenterDiv' style = 'width: 40%; display: block; text-align:center'>
+    <form action="/open_question" method="post">
+    
+    {% if Right or Solve %}
+        {% if Right == Solve %}
+            <h1 class = 'SimpleText Right Outline'>Верно!</h1>
+        {% elif Right != Solve %}
+            <h1 class = 'SimpleText Alert Outline'>Неверно!</h1>   
+        {% endif %} 
+
+        <h2 class = 'SimpleText White'>Ваш ответ: {{ Right }} <br> Правильный ответ: {{ Solve }} </h2>
+    {% endif %}
+    
+    <h1 style = 'margin-bottom:20px; color: #C6DAE1; '>{{ question }}</h1>
+        <input class="line" type="text" name="username" placeholder="Enter Username" required><br>
+        <input id = 'SubmitBtn' class = 'SimpleBtn' type="submit" value="Submit"> <label class = 'MainLabel Answer' for ='SubmitBtn'>Ответить</label>
+    </form>
+</div>
+<br><br><br><br><br><br><br><br><br><br>
+
+{% endblock %}
